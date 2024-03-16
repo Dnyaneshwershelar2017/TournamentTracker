@@ -13,6 +13,7 @@ tmp
 
 bin
 obj
+.vs
 builds
 current_build_bin
 TestNsis.

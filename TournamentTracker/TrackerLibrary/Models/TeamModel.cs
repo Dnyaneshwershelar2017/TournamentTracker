@@ -8,6 +8,11 @@ namespace TrackerLibrary.Models
 {
     public class TeamModel
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int TeamId { get; set; }
+
         // Initializing using new Approach after c# 6
 
         /// <summary>
@@ -20,6 +25,12 @@ namespace TrackerLibrary.Models
      /// </summary>
         public string TeamName { get; set; }
 
+        public TeamModel(int teamId, string teamName, List<PersonModel> teamMembers)
+        {
+            this.TeamId = teamId;
+            this.TeamName = teamName;
+            this.TeamMembers = teamMembers;
+        }
        /*
         * Before c# 6.0
         public TeamModel()

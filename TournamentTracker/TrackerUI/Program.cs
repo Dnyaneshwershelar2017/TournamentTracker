@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using TrackerLibrary;
+using TrackerLibrary.DataAccess;
+
 namespace TrackerUI
 {
     static class Program
@@ -21,21 +24,18 @@ namespace TrackerUI
 
             //Initialize the database connections
 
-          
 
+            //Getting details from appsettings.json
             var builder = new ConfigurationBuilder()
                 .SetBasePath(System.IO.Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-
-            ConfigurationBuilder configuration = builder.
-
-            string connectionString = configuration.GetConnectionString("MyDatabaseConnection");
+            GlobalConfig.configuration = (IConfigurationRoot)builder.Build();
 
 
-            TrackerLibrary.GlobalConfig.InitializeConnection(true,true);
+            GlobalConfig.InitializeConnection(DatabaseType.TextFile);
 
-            Application.Run(new CreatePrizeForm());
+            Application.Run(new CreateTeamForm());
            // Application.Run(new TournamentDashboardForm());
         }
     }

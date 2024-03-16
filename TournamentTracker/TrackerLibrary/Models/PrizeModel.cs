@@ -25,7 +25,7 @@
         {
 
         }
-        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage, string prizeId="0")
         {
             PlaceName = placeName;
 
@@ -42,6 +42,10 @@
             double.TryParse(prizePercentage, out prizePercentageValue);
             PrizePercentage = prizePercentageValue;
 
+
+            int idNumberValue = 0;
+            int.TryParse(prizeId, out idNumberValue);
+            PrizeID = idNumberValue;
 
         }
     }
